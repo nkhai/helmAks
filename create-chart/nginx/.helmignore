@@ -1,0 +1,60 @@
+# Helm ignore file
+# This file contains patterns to ignore when packaging the Helm chart
+
+# Environment files
+.env*
+*.env
+
+# OS generated files
+.DS_Store*
+.DS_Store
+Thumbs.db
+
+# Version control
+.git/
+.gitignore
+.svn/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+
+# Logs
+*.log
+logs/
+
+# Node modules (if any)
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Test files
+test/
+tests/
+*_test.yaml
+*_test.yml
+
+# Documentation drafts
+*.draft
+*.draft.*
+
+# Local development
+.local/
+local.yaml
+local.yml

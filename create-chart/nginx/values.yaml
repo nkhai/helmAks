@@ -1,0 +1,40 @@
+# Default values for nginx chart
+# This file contains static values without Helm templating variables
+
+# Image configuration
+image:
+  repository: nginx
+  tag: "1.25.3"
+  pullPolicy: IfNotPresent
+
+# Pod configuration
+replicaCount: 1
+
+# Service configuration
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+
+# Labels
+labels:
+  app: nginx
+  version: "1.25.3"
+
+# Resource limits (optional)
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+# Node selector (optional)
+nodeSelector: {}
+
+# Tolerations (optional)
+tolerations: []
+
+# Affinity (optional)
+affinity: {}
