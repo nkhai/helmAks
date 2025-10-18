@@ -26,4 +26,4 @@ metadata:
     app.kubernetes.io/managed-by: {{ .Release.Service }} # Function: .Release.Service
     helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }} # Functions: .Chart.Name, .Chart.Version
 data:
-  test: {{ lower .Values.test }}                       # Function: lower .Values.test
+  test: {{ (replace "khai" "new-value" .Values.test) | lower }}                       # Function: lower .Values.test
