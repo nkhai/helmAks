@@ -10,11 +10,13 @@ spec:
   selector:
     matchLabels:
       app: {{ .Chart.Name }}
+      release: {{ .Release.Name }}
   template:
     metadata:
       labels:
         app: {{ .Chart.Name }}
         version: {{ .Values.image.tag }}
+        release: {{ .Release.Name }}
     spec:
       containers:
       - name: {{ .Chart.Name }}
