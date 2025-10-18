@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: demo-values
+data:
+  # Just Release Name
+  release-name: "{{ .Release.Name }}"
+  
+  # Just Chart Name  
+  chart-name: "{{ .Chart.Name }}"
+  
+  # Helper Template Result
+  helper-result: "{{ include "templating deep dive.selectorLabels" . }}"
+  
+  # Showing the formula breakdown
+  formula: "Release: {{ .Release.Name }} + Chart: {{ .Chart.Name }} = {{ include "templating deep dive.selectorLabels" . }}"
