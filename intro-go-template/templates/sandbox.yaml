@@ -1,1 +1,9 @@
+# This is a sandbox template file for testing Helm Go templating features
+# Purpose: Demonstrate how to use .Values in Helm templates
+# Author: vkn1hc
+# Date: October 18, 2025
+#
+# This template shows how to reference values from the values.yaml file
+# using Go template syntax: {{ .Values.variableName }}
+
 test: {{ .Values.test }}
