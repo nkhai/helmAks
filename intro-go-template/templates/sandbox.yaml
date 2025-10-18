@@ -27,12 +27,12 @@ metadata:
     helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }} # Functions: .Chart.Name, .Chart.Version
 data:
   test: {{ (replace "khai" "new-value" .Values.test) | lower }}                       # Function: lower .Values.test
-  {{- if eq .Values.environment "production" }}
+  {{ if eq .Values.environment "production" }}
   environment: "prod"
   build: "prod"
   public-ingress: "true"
-  {{- else }}
+  {{ else }}
   environment: "dev"
   build: "alpha"
   public-ingress: "false"
-  {{- end }}
+  {{ end }}
