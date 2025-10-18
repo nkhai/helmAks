@@ -1,14 +1,18 @@
 # Default values for nginx chart
-# This file contains static values without Helm templating variables
+# This file contains templating variables for Helm
 
 # Image configuration
 image:
   repository: nginx
-  tag: "1.25.3"
+  tag: "1.27.0"
   pullPolicy: IfNotPresent
 
 # Pod configuration
-replicaCount: 1
+replicaCount: 2
+
+# Container ports configuration
+containerPorts:
+  http: 80
 
 # Service configuration
 service:
