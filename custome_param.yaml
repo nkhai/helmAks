@@ -1,0 +1,65 @@
+# WordPress Custom Configuration
+# File: custome_param.yaml
+
+# === WordPress Configuration ===
+wordpressUsername: khai
+wordpressBlogName: "Khai's WordPress Blog"
+wordpressEmail: admin@example.com
+
+# === Use Existing Secret ===
+existingSecret: "custom-wp"
+
+# === Replica Configuration ===
+# Reduced for Minikube resource constraints
+replicaCount: 1
+
+# === MariaDB Configuration ===
+mariadb:
+  auth:
+    existingSecret: "custom-wp"
+    secretKeys:
+      rootPasswordKey: "mariadb-root-password"
+      userPasswordKey: "mariadb-password"
+    database: wordpress
+    username: wordpress
+  primary:
+    persistence:
+      enabled: true
+      size: 2Gi
+      storageClass: "standard"
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "100m"
+      limits:
+        memory: "256Mi"
+        cpu: "250m"
+    updateStrategy:
+      type: RollingUpdate
+    podManagementPolicy: OrderedReady
+
+# === Service Configuration ===
+# Minikube Configuration - Use NodePort
+service:
+  type: NodePort
+  port: 80
+  httpsPort: 443
+  nodePorts:
+    http: 30080
+    https: 30443
+
+# === Persistence Configuration ===
+persistence:
+  enabled: true
+  size: 2Gi
+  storageClass: "standard"
+
+# === Resource Configuration ===
+# Reduced for Minikube
+resources:
+  requests:
+    memory: "128Mi"
+    cpu: "100m"
+  limits:
+    memory: "256Mi"
+    cpu: "250m"

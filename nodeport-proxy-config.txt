@@ -1,0 +1,32 @@
+# Alternative NodePort Configuration
+# If LoadBalancer doesn't work, use this instead
+
+# === Service Configuration ===
+service:
+  type: NodePort
+  port: 80
+  httpsPort: 443
+  nodePorts:
+    http: 30080
+    https: 30443
+
+# Then set up nginx proxy on VM:
+# sudo apt install nginx
+# sudo nano /etc/nginx/sites-available/wordpress-proxy
+
+# Add nginx config:
+server {
+    listen 80;
+    server_name 135.171.192.43;
+    
+    location / {
+        proxy_pass http://localhost:30080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+
+# Enable site:
+# sudo ln -s /etc/nginx/sites-available/wordpress-proxy /etc/nginx/sites-enabled/
+# sudo nginx -t
+# sudo systemctl restart nginx
