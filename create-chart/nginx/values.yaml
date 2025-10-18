@@ -16,6 +16,7 @@ containerPorts:
 
 # Service configuration
 service:
+  enabled: true
   type: ClusterIP
   port: 80
   targetPort: 80
