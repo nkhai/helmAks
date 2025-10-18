@@ -3,7 +3,7 @@ entries:
   nginx:
   - apiVersion: v2
     appVersion: 1.25.3
-    created: "2025-10-18T10:46:46.439366756Z"
+    created: "2025-10-18T10:50:05.531205508Z"
     description: A basic Nginx Helm chart for Kubernetes deployment
     digest: 4ca8d53ab45c46d07a0dd570d198d28313323dbb4e234299e2997c286404298b
     home: https://nginx.org/
@@ -19,6 +19,6 @@ entries:
     - https://github.com/nginx/nginx
     type: application
     urls:
-    - https://github.com/nkhai/helmAks/nginx-0.1.0.tgz
+    - https://raw.githubusercontent.com/nkhai/helmAks/main/nginx-0.1.0.tgz
     version: 0.1.0
-generated: "2025-10-18T10:46:46.438992648Z"
+generated: "2025-10-18T10:50:05.530825229Z"
